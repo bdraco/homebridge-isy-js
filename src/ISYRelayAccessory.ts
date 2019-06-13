@@ -6,6 +6,8 @@ import { Characteristic, Service } from './plugin';
 export class ISYRelayAccessory<T extends InsteonRelayDevice> extends ISYDeviceAccessory<T> {
 	public primaryService: HAPNodeJS.Service;
 
+	public dimmable: boolean
+
 	constructor(log, device: T) {
 		super(log, device);
 		this.dimmable = device instanceof InsteonDimmableDevice;

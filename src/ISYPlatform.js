@@ -11,6 +11,7 @@ const ISYOutletAccessory_1 = require("./ISYOutletAccessory");
 const ISYRelayAccessory_1 = require("./ISYRelayAccessory");
 const ISYSceneAccessory_1 = require("./ISYSceneAccessory");
 const ISYThermostatAccessory_1 = require("./ISYThermostatAccessory");
+const ISYDimmerAccessory_1 = require("./ISYDimmerAccessory");
 class ISYPlatform {
     constructor(log, config, homebridge) {
         this.log = log;
@@ -195,6 +196,9 @@ class ISYPlatform {
         }
         else if (device instanceof isy_js_1.InsteonThermostatDevice) {
             return new ISYThermostatAccessory_1.ISYThermostatAccessory(this.logger.bind(this), device);
+        }
+        else if (device instanceof isy_js_1.InsteonDimmableDevice) {
+            return new ISYDimmerAccessory_1.ISYDimmableAccessory(this.logger.bind(this), device);
         }
         return null;
     }

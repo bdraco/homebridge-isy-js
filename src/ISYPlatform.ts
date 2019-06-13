@@ -1,6 +1,6 @@
 import { IgnoreDeviceRule } from 'config';
 import { API } from 'homebridge';
-import { ElkAlarmSensorDevice, InsteonDoorWindowSensorDevice, InsteonFanDevice, InsteonLockDevice, InsteonMotionSensorDevice, InsteonOutletDevice, InsteonRelayDevice, InsteonThermostatDevice, ISY, ISYNode, NodeTypes } from 'isy-js';
+import { ElkAlarmSensorDevice, InsteonDoorWindowSensorDevice, InsteonFanDevice, InsteonLockDevice, InsteonMotionSensorDevice, InsteonOutletDevice, InsteonRelayDevice, InsteonThermostatDevice, InsteonDimmableDevice, ISY, ISYNode, NodeTypes } from 'isy-js';
 import { ISYDoorWindowSensorAccessory } from './ISYDoorWindowSensorAccessory';
 import { ISYElkAlarmPanelAccessory } from './ISYElkAlarmPanelAccessory';
 import { ISYFanAccessory } from './ISYFanAccessory';
@@ -11,6 +11,7 @@ import { ISYOutletAccessory } from './ISYOutletAccessory';
 import { ISYRelayAccessory } from './ISYRelayAccessory';
 import { ISYSceneAccessory } from './ISYSceneAccessory';
 import { ISYThermostatAccessory } from './ISYThermostatAccessory';
+import {ISYDimmableAccessory} from "./ISYDimmerAccessory";
 export class ISYPlatform {
 	public log: any;
 	public config: any;
@@ -195,6 +196,8 @@ export class ISYPlatform {
 			return new ISYMotionSensorAccessory(this.logger.bind(this), device);
 		} else if (device instanceof InsteonThermostatDevice) {
 			return new ISYThermostatAccessory(this.logger.bind(this), device);
+		} else if (device instanceof InsteonDimmableDevice) {
+			return new ISYDimmableAccessory(this.logger.bind(this), device);
 		}
 		return null;
 	}
