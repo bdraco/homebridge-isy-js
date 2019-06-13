@@ -1,5 +1,5 @@
 import { InsteonDimmableDevice } from 'isy-js';
-import { ISYRelayAccessory } from 'ISYRelayAccessory';
+import { ISYRelayAccessory } from './ISYRelayAccessory';
 
 import { Characteristic, Service } from './plugin';
 

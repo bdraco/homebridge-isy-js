@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const ISYRelayAccessory_1 = require("ISYRelayAccessory");
+const ISYRelayAccessory_1 = require("./ISYRelayAccessory");
 const plugin_1 = require("./plugin");
 class ISYDimmableAccessory extends ISYRelayAccessory_1.ISYRelayAccessory {
     constructor(log, device) {
