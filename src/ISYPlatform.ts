@@ -180,7 +180,9 @@ export class ISYPlatform {
 		});
 	}
 	public createAccessory(device) {
-		if (device instanceof InsteonRelayDevice) {
+		if (device instanceof InsteonDimmableDevice) {
+			return new ISYDimmableAccessory(this.logger.bind(this), device);
+		} else if (device instanceof InsteonRelayDevice) {
 			return new ISYRelayAccessory(this.logger.bind(this), device);
 		} else if (device instanceof InsteonLockDevice) {
 			return new ISYLockAccessory(this.logger.bind(this), device);
@@ -196,8 +198,6 @@ export class ISYPlatform {
 			return new ISYMotionSensorAccessory(this.logger.bind(this), device);
 		} else if (device instanceof InsteonThermostatDevice) {
 			return new ISYThermostatAccessory(this.logger.bind(this), device);
-		} else if (device instanceof InsteonDimmableDevice) {
-			return new ISYDimmableAccessory(this.logger.bind(this), device);
 		}
 		return null;
 	}

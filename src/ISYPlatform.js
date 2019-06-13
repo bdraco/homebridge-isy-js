@@ -173,7 +173,10 @@ class ISYPlatform {
         });
     }
     createAccessory(device) {
-        if (device instanceof isy_js_1.InsteonRelayDevice) {
+        if (device instanceof isy_js_1.InsteonDimmableDevice) {
+            return new ISYDimmerAccessory_1.ISYDimmableAccessory(this.logger.bind(this), device);
+        }
+        else if (device instanceof isy_js_1.InsteonRelayDevice) {
             return new ISYRelayAccessory_1.ISYRelayAccessory(this.logger.bind(this), device);
         }
         else if (device instanceof isy_js_1.InsteonLockDevice) {
@@ -196,9 +199,6 @@ class ISYPlatform {
         }
         else if (device instanceof isy_js_1.InsteonThermostatDevice) {
             return new ISYThermostatAccessory_1.ISYThermostatAccessory(this.logger.bind(this), device);
-        }
-        else if (device instanceof isy_js_1.InsteonDimmableDevice) {
-            return new ISYDimmerAccessory_1.ISYDimmableAccessory(this.logger.bind(this), device);
         }
         return null;
     }
