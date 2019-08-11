@@ -39,7 +39,7 @@
     "hap-nodejs": "^0.4.51",
     "homebridge": "^0.4.50",
     "homebridge-lib": "^1.0.11",
-    "isy-js": "git+https://github.com/sluramod/isy-js.git#v5",
+    "isy-js": "git+https://github.com/sluramod/isy-js.git",
     "restler": "^3.4.0",
     "xmldoc": "^1.1.2"
   },
